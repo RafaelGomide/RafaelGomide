@@ -30,4 +30,4 @@ Interesse de pesquisa em análise de sobrevivência e métodos estatísticos apl
 ## Contato
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white)](https://linkedin.com/in/rafael-gomide-13240b316/)
-![Email](https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white) provisoria.rafa@gmail.com
+[![Email](https://img.shields.io/badge/Email-EA4335?style=flat&logo=gmail&logoColor=white)](mailto:provisoria.rafa@gmail.com)
