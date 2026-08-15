@@ -10,7 +10,7 @@ Interesse de pesquisa em análise de sobrevivência e métodos estatísticos apl
 `Python` `pandas` `polars` `numpy` `SQL`
 
 **Estatística & Machine Learning**
-`statsmodels` `scikit-learn` `XGBoost`
+`statsmodels` `scikit-learn` `XGBoost` `scipy` `lifelines`
 
 **Geoespacial**
 `geopandas` `Leaflet`
@@ -41,7 +41,21 @@ Aplicação full-stack de análise de preços de imóveis, do scraping ao deploy
 - Limitações de amostragem documentadas explicitamente no README
 
 `Python` `polars` `geopandas` `statsmodels` `scikit-learn` `FastAPI` `Leaflet`
+
 🔗 [Aplicação no ar](https://imoveis-vila-velha.onrender.com) *(tier gratuito — a primeira carga pode levar ~50s)*
+
+### 🧰 [DS Toolkit](https://github.com/RafaelGomide/DS_toolkit)
+
+Módulo Python único com 66 funções cobrindo o ciclo inteiro de um projeto de dados: ingestão, ETL, EDA, gráficos, machine learning, estatística aplicada e análise de sobrevivência. Nasceu da camada repetitiva que eu reescrevia em todo projeto novo — arquivo com encoding errado, `"R$ 1.234,56"` virando número, escolha do teste estatístico, a mesma matriz de confusão.
+
+**Decisão de projeto:** as funções não escondem a estatística, elas a explicitam. `comparar_grupos()` escolhe entre t de Welch, Mann-Whitney, ANOVA e Kruskal-Wallis conforme normalidade e número de grupos, e sempre reporta tamanho de efeito junto do p-valor. O merge avisa quando um `left join` multiplicou linhas silenciosamente; o Cox alerta quando há menos de 10 eventos por covariável; o teste A/B distingue "não significativo" de "amostra pequena demais para concluir".
+
+- 7 seções, ~3.980 linhas · pré-processamento encapsulado em `ColumnTransformer` para eliminar vazamento de dados, inclusive dentro de cada fold
+- Seção de sobrevivência: Kaplan-Meier, Nelson-Aalen, Cox PH com checagem de riscos proporcionais, Cox-LASSO para p >> n e previsão individual de S(t)
+- Dados brasileiros por padrão: datas `dd/mm/aaaa`, vírgula decimal, encoding `latin-1` de sistema legado
+- Docstring completa em cada função — incluindo *quando não usar* aquela abordagem
+
+`Python` `pandas` `numpy` `scipy` `scikit-learn` `lifelines` `matplotlib` `seaborn`
 
 ## Formação
 
