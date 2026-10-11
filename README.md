@@ -7,7 +7,7 @@ Interesse de pesquisa em análise de sobrevivência e métodos estatísticos apl
 ## Stack
 
 **Análise & Dados**
-`Python` `pandas` `polars` `numpy` `SQL`
+`Python` `pandas` `polars` `numpy` `SQL` `DuckDB`
 
 **Estatística & Machine Learning**
 `statsmodels` `scikit-learn` `XGBoost` `scipy` `lifelines`
@@ -25,9 +25,25 @@ Interesse de pesquisa em análise de sobrevivência e métodos estatísticos apl
 `matplotlib` `seaborn` `plotly`
 
 **Ferramentas**
-`Git` `Jupyter` `Google Colab`
+`Git` `Jupyter` `Google Colab` `pytest`
 
 ## Projetos em destaque
+
+### ☀️ [SolarWatch BR](https://github.com/RafaelGomide/SolarWatch-BR)
+
+Pipeline completo de dados sobre geração solar e eólica no Brasil, da API pública ao painel no ar. Integra três fontes que não se conectam (geração horária do ONS, cadastro de usinas da ANEEL e clima da NASA POWER) e serve previsão de geração e análise de sobrevivência de ativos por API e painel web.
+
+**Decisão de projeto:** o vínculo entre ONS e ANEEL é verificado contra a geração medida; quando não é confiável, o campo fica vazio em vez de receber um valor estimado. 149 das 308 unidades ficam sem potência publicada, e o dado informa o motivo.
+
+- Previsão de 24 h com Gradient Boosting: RMSE 59% (solar) e 38% (eólica) abaixo do baseline sazonal, validado por backtesting de janela deslizante com features anti-vazamento
+- Sobrevivência de ativos: Kaplan-Meier, Cox estratificado, Weibull AFT e modelos de eventos recorrentes (Andersen-Gill, PWP)
+- 1,36 mi de linhas de geração horária · ETL em camadas → DuckDB com modelo estrela
+- API `FastAPI` (paginação por cursor, erros RFC 9457, rate limit) + painel em HTML, CSS e JavaScript puros · 549 testes
+- Eventos de manutenção **sintéticos** (não há base pública de O&M de usinas brasileiras); a API sinaliza isso em cada resposta
+
+`Python` `pandas` `DuckDB` `scikit-learn` `statsmodels` `lifelines` `FastAPI`
+
+🔗 [Painel no ar](https://solarwatch-br.onrender.com/app/) *(tier gratuito — a primeira carga pode levar ~1 min)*
 
 ### 🌊 [Análise do Mercado Imobiliário de Vila Velha](https://github.com/RafaelGomide/Capstone-Imoveis-Vila-Velha)
 
